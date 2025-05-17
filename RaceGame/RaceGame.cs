@@ -63,7 +63,6 @@
                 Coin3.Left = r.Next(0, Width - Coin3.Width);
             }
         }
-
         private void CoinsCollect()
         {
             if (mainCar.Bounds.IntersectsWith(Coin1.Bounds))
@@ -134,13 +133,17 @@
                 if (e.KeyCode == Keys.Right)
                 {
 
-                    if (mainCar.Right < 500)
-                        mainCar.Left += 9;
+                    if (mainCar.Right < panelGame.Width + mainCar.Width / 2)
+                        mainCar.Left += 10;
+                    else
+                        mainCar.Left = 0 - mainCar.Width / 2;
                 }
                 if (e.KeyCode == Keys.Left)
                 {
-                    if (mainCar.Left > 0)
-                        mainCar.Left -= 9;
+                    if (mainCar.Left > 0 - mainCar.Width / 2)
+                        mainCar.Left -= 10;
+                    else
+                        mainCar.Left = panelGame.Width - mainCar.Width / 2;
                 }
             }
         }
