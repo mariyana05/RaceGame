@@ -121,7 +121,7 @@
     <value>17, 17</value>
   </metadata>
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
-  <data name="CarMenu1.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+  <data name="carMenu1.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAAY0AAAMgCAYAAADfuj7IAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAL
         ggAAC4IBvvripQAAABl0RVh0U29mdHdhcmUAd3d3Lmlua3NjYXBlLm9yZ5vuPBoAAAAddEVYdFRpdGxl
@@ -993,7 +993,7 @@
         OryUesjvWc7q+x681KS84AX/P6zYBSHfyhJpAAAAAElFTkSuQmCC
 </value>
   </data>
-  <data name="CarMenu3.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+  <data name="carMenu3.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAAfQAAAPvCAYAAAA1WDz7AAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAO
         vAAADrwBlbxySQAA/7JJREFUeF7s/QvctttUNg6/lmXZrWVtrdV69rv17Nazw7LNKwlJQqwkSSpJlHaS
@@ -7279,7 +7279,7 @@
         pmKRq3seRLbIL4cubTb5KqK6jbV2z9nS+0WcLUHEAc9Ledtt/wHqdMTISfOH5AAAAABJRU5ErkJggg==
 </value>
   </data>
-  <data name="CarMenu2.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+  <data name="carMenu2.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAAY0AAAMgCAYAAADfuj7IAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAO
         vAAADrwBlbxySQAA4QdJREFUeF7snQm0XFWV97/lcvXq1atXr9YF5qXm+Q31aniZyEBICEkImRMyzwmZ
