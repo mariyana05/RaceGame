@@ -2,6 +2,14 @@
 {
     public static class FileProvider
     {
+        public static void Create(string path)
+        {
+            if (!File.Exists(path)
+                {
+                File.Create(path);
+                }
+        }
+        
         public static void WriteData(string path, string data)
         {
             if (string.IsNullOrWhiteSpace(path) || string.IsNullOrWhiteSpace(data)) return;

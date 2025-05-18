@@ -34,6 +34,13 @@
             panelGame = new Panel();
             panelPause = new Panel();
             panelMenu = new Panel();
+            panelResults = new Panel();
+            exitResultButton = new Button();
+            dataGridView = new DataGridView();
+            UserName = new DataGridViewTextBoxColumn();
+            CurrentDatetime = new DataGridViewTextBoxColumn();
+            Coins = new DataGridViewTextBoxColumn();
+            Score = new DataGridViewTextBoxColumn();
             resultsButton = new Button();
             nameTextBox = new TextBox();
             buttonHelp = new Button();
@@ -85,6 +92,8 @@
             panelGame.SuspendLayout();
             panelPause.SuspendLayout();
             panelMenu.SuspendLayout();
+            panelResults.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)dataGridView).BeginInit();
             ((System.ComponentModel.ISupportInitialize)carMenu1).BeginInit();
             ((System.ComponentModel.ISupportInitialize)carMenu3).BeginInit();
             ((System.ComponentModel.ISupportInitialize)carMenu2).BeginInit();
@@ -153,6 +162,7 @@
             // panelMenu
             // 
             panelMenu.BackColor = SystemColors.ControlDarkDark;
+            panelMenu.Controls.Add(panelResults);
             panelMenu.Controls.Add(resultsButton);
             panelMenu.Controls.Add(nameTextBox);
             panelMenu.Controls.Add(buttonHelp);
@@ -178,7 +188,57 @@
             panelMenu.Name = "panelMenu";
             panelMenu.Size = new Size(447, 650);
             panelMenu.TabIndex = 57;
-            panelMenu.Paint += panelMenu_Paint;
+            // 
+            // panelResults
+            // 
+            panelResults.Controls.Add(exitResultButton);
+            panelResults.Controls.Add(dataGridView);
+            panelResults.Location = new Point(0, 0);
+            panelResults.Name = "panelResults";
+            panelResults.Size = new Size(448, 577);
+            panelResults.TabIndex = 85;
+            panelResults.Visible = false;
+            // 
+            // exitResultButton
+            // 
+            exitResultButton.Location = new Point(161, 531);
+            exitResultButton.Name = "exitResultButton";
+            exitResultButton.Size = new Size(136, 43);
+            exitResultButton.TabIndex = 1;
+            exitResultButton.Text = "BACK";
+            exitResultButton.UseVisualStyleBackColor = true;
+            exitResultButton.Click += exitResultButton_Click;
+            // 
+            // dataGridView
+            // 
+            dataGridView.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridView.Columns.AddRange(new DataGridViewColumn[] { UserName, CurrentDatetime, Coins, Score });
+            dataGridView.Location = new Point(0, 0);
+            dataGridView.Name = "dataGridView";
+            dataGridView.RowTemplate.Height = 25;
+            dataGridView.Size = new Size(448, 525);
+            dataGridView.TabIndex = 0;
+            dataGridView.CellContentClick += dataGridView_CellContentClick;
+            // 
+            // UserName
+            // 
+            UserName.HeaderText = "Имя";
+            UserName.Name = "UserName";
+            // 
+            // CurrentDatetime
+            // 
+            CurrentDatetime.HeaderText = "Время";
+            CurrentDatetime.Name = "CurrentDatetime";
+            // 
+            // Coins
+            // 
+            Coins.HeaderText = "Монеты";
+            Coins.Name = "Coins";
+            // 
+            // Score
+            // 
+            Score.HeaderText = "Скорость";
+            Score.Name = "Score";
             // 
             // resultsButton
             // 
@@ -397,7 +457,7 @@
             // 
             label12.BackColor = Color.White;
             label12.ForeColor = SystemColors.Control;
-            label12.Location = new Point(214, -4);
+            label12.Location = new Point(214, -19);
             label12.Margin = new Padding(4, 0, 4, 0);
             label12.Name = "label12";
             label12.Size = new Size(20, 654);
@@ -741,6 +801,8 @@
             panelPause.PerformLayout();
             panelMenu.ResumeLayout(false);
             panelMenu.PerformLayout();
+            panelResults.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)dataGridView).EndInit();
             ((System.ComponentModel.ISupportInitialize)carMenu1).EndInit();
             ((System.ComponentModel.ISupportInitialize)carMenu3).EndInit();
             ((System.ComponentModel.ISupportInitialize)carMenu2).EndInit();
@@ -808,5 +870,12 @@
         private Label label12;
         private Button resultsButton;
         private TextBox nameTextBox;
+        private Panel panelResults;
+        private DataGridView dataGridView;
+        private Button exitResultButton;
+        private DataGridViewTextBoxColumn UserName;
+        private DataGridViewTextBoxColumn CurrentDatetime;
+        private DataGridViewTextBoxColumn Coins;
+        private DataGridViewTextBoxColumn Score;
     }
 }

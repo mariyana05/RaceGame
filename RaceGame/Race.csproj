@@ -9,6 +9,7 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="PanelResults.resx~RF11376a95.TMP" />
     <None Remove="Resources\Coin.png" />
     <None Remove="Resources\mainCar1.png" />
     <None Remove="Resources\mainCar2.png" />

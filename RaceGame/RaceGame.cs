@@ -15,6 +15,8 @@ namespace Race
         private int score;
         private int coins;
         private int carSpeed;
+
+
         public RaceGame()
         {
             InitializeComponent();
@@ -250,6 +252,7 @@ namespace Race
                 Coins = coins,
                 Score = score
             };
+            StatisticStorage.Add(statictic);
         }
 
         private void Restart()
@@ -376,16 +379,24 @@ namespace Race
             Help.ShowHelp(this, $"{baseDirectory}\\help.chm", HelpNavigator.TableOfContents);
         }
 
-        private void panelMenu_Paint(object sender, PaintEventArgs e)
-        {
-
-        }       
 
         private void resultsButton_Click(object sender, EventArgs e)
         {
+            panelResults.Visible = true;
             var json = FileProvider.ReadAll(StatisticStorage.Path) ?? string.Empty;
             dataGridView.DataSource = JsonConvert.DeserializeObject<DataTable>(json);
-            PanelResults.Show;
+            //panelResults.Show;
+        }
+
+
+        private void exitResultButton_Click(object sender, EventArgs e)
+        {
+            panelResults.Visible = false;
+        }
+
+        private void dataGridView_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
         }
     }
 }
