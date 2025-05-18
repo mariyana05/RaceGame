@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace Race
 {
-    public partial class PanelResults : Form
+    public partial class panelResults : Form
     {
-        public PanelResults()
+        public panelResults()
         {
             InitializeComponent();
         }

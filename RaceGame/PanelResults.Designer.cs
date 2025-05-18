@@ -1,6 +1,6 @@
 ﻿namespace Race
 {
-    partial class PanelResults
+    partial class panelResults
     {
         /// <summary>
         /// Required designer variable.
@@ -66,13 +66,13 @@
             Score.HeaderText = "Скорость";
             Score.Name = "Score";
             // 
-            // PanelResults
+            // panelResults
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(441, 499);
             Controls.Add(dataGridView1);
-            Name = "PanelResults";
+            Name = "panelResults";
             Text = "Панел результатов";
             ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
             ResumeLayout(false);

@@ -189,7 +189,7 @@
             resultsButton.TabIndex = 84;
             resultsButton.Text = "Results";
             resultsButton.UseVisualStyleBackColor = true;
-            //resultsButton.Click += resultsButton_Click;
+            resultsButton.Click += resultsButton_Click_1;
             // 
             // nameTextBox
             // 

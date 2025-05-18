@@ -1,6 +1,4 @@
-﻿using System.IO;
-
-namespace Race.Model
+﻿namespace Race
 {
     public static class FileProvider
     {

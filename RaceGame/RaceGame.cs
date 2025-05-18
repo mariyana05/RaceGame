@@ -1,4 +1,5 @@
-﻿using System.ComponentModel;
+﻿using Race.Model;
+using System.ComponentModel;
 using System.Text.Json.Serialization;
 
 namespace Race
@@ -318,8 +319,6 @@ namespace Race
             timerTowardCars.Enabled = true;
             panelPause.Hide();
         }
-
-
         private void StartGame()
         {
             score = 0;
@@ -373,12 +372,17 @@ namespace Race
         {
 
         }
-        //private void resultsButton_Click(object sender, EventArgs e)
-        //{
-        //    var json = FileProvider.ReadAll(StatisticStorage.Path) ?? string.Empty;
-        //    resultsDataGridView.DataSource = JsonConverter.DeserializeObject<DataTable>(json);
-        //    panelResults.Show;
-        //}
+        private void resultsButton_Click(object sender, EventArgs e)
+        {
+            var json = FileProvider.ReadAll(StatisticStorage.Path) ?? string.Empty;
+            resultsDataGridView.DataSource = JsonConverter.DeserializeObject<DataTable>(json);
+            panelResults.Show;
+        }
+
+        private void resultsButton_Click_1(object sender, EventArgs e)
+        {
+
+        }
     }
 }
 
