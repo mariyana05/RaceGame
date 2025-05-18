@@ -28,28 +28,28 @@
         /// </summary>
         private void InitializeComponent()
         {
-            dataGridView1 = new DataGridView();
-            UserNameColumn = new DataGridViewTextBoxColumn();
+            dataGridView = new DataGridView();
+            UserName = new DataGridViewTextBoxColumn();
             DataTime = new DataGridViewTextBoxColumn();
             Coins = new DataGridViewTextBoxColumn();
             Score = new DataGridViewTextBoxColumn();
-            ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)dataGridView).BeginInit();
             SuspendLayout();
             // 
-            // dataGridView1
+            // dataGridView
             // 
-            dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridView1.Columns.AddRange(new DataGridViewColumn[] { UserNameColumn, DataTime, Coins, Score });
-            dataGridView1.Location = new Point(1, 2);
-            dataGridView1.Name = "dataGridView1";
-            dataGridView1.RowTemplate.Height = 25;
-            dataGridView1.Size = new Size(442, 495);
-            dataGridView1.TabIndex = 0;
+            dataGridView.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridView.Columns.AddRange(new DataGridViewColumn[] { UserName, DataTime, Coins, Score });
+            dataGridView.Location = new Point(1, 2);
+            dataGridView.Name = "dataGridView";
+            dataGridView.RowTemplate.Height = 25;
+            dataGridView.Size = new Size(442, 495);
+            dataGridView.TabIndex = 0;
             // 
             // UserNameColumn
             // 
-            UserNameColumn.HeaderText = "Имя игрока";
-            UserNameColumn.Name = "UserNameColumn";
+            UserName.HeaderText = "Имя игрока";
+            UserName.Name = "UserName";
             // 
             // DataTime
             // 
@@ -71,17 +71,17 @@
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(441, 499);
-            Controls.Add(dataGridView1);
+            Controls.Add(dataGridView);
             Name = "panelResults";
             Text = "Панел результатов";
-            ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
+            ((System.ComponentModel.ISupportInitialize)dataGridView).EndInit();
             ResumeLayout(false);
         }
 
         #endregion
 
-        private DataGridView dataGridView1;
-        private DataGridViewTextBoxColumn UserNameColumn;
+        private DataGridView dataGridView;
+        private DataGridViewTextBoxColumn UserName;
         private DataGridViewTextBoxColumn DataTime;
         private DataGridViewTextBoxColumn Coins;
         private DataGridViewTextBoxColumn Score;

@@ -1,4 +1,6 @@
 ﻿
+using Newtonsoft.Json;
+
 namespace Race
 {
     public class StatisticStorage
@@ -10,10 +12,10 @@ namespace Race
             if (string.IsNullOrWhiteSpace(data)) return new List<GameStatistic>();
             return JsonConvert.DeserializeObject<List<GameStatistic>>(data);
         }
-        public static void Add(GameStatistic gameStatistics)
+        public static void Add(GameStatistic gameStatistic)
         {
             var gameStatistics = GetAll();
-            gameStatistics.Add(gameStatistics);
+            gameStatistics.Add(gameStatistic);
         }
-    }
+    } 
 }

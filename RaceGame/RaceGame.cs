@@ -1,6 +1,7 @@
-﻿using Race.Model;
-using System.ComponentModel;
+﻿using Newtonsoft.Json;
+using System.Data;
 using System.Text.Json.Serialization;
+using System.Windows.Forms;
 
 namespace Race
 {
@@ -91,7 +92,6 @@ namespace Race
                 Coin3.Left = r.Next(240, 300);
             }
         }
-
         private void RaceGame_Load(object sender, EventArgs e)
         {
             rightHandRoadMarkingsPanelGame[0] = LaneOne1;
@@ -223,6 +223,7 @@ namespace Race
             timerTowardCars.Stop();
             if (coins < 15)
             {
+                SaveGameStatistic();
                 DialogResult dd = MessageBox.Show("Game Over!", "Приехали!");
                 panelPause.Show();
                 panelMenu.Show();
@@ -239,6 +240,16 @@ namespace Race
                     panelMenu.Show();
                 }
             }
+        }
+        private void SaveGameStatistic()
+        {
+            var statictic = new GameStatistic
+            {
+                UserName = nameTextBox.Text,
+                CurrentDateTime = DateTime.Now,
+                Coins = coins,
+                Score = score
+            };
         }
 
         private void Restart()
@@ -301,7 +312,6 @@ namespace Race
                 if (leftHandRoadMarkingsMenu[i].Top >= Height)
                 {
                     leftHandRoadMarkingsMenu[i].Top = -leftHandRoadMarkingsMenu[i].Height;
-
                 }
             }
         }
@@ -354,9 +364,7 @@ namespace Race
             StartGame();
             panelGame.Show();
             panelMenu.Hide();
-
         }
-
         private void buttonMenuExit_Click(object sender, EventArgs e)
         {
             this.Close();
@@ -371,17 +379,13 @@ namespace Race
         private void panelMenu_Paint(object sender, PaintEventArgs e)
         {
 
-        }
+        }       
+
         private void resultsButton_Click(object sender, EventArgs e)
         {
             var json = FileProvider.ReadAll(StatisticStorage.Path) ?? string.Empty;
-            resultsDataGridView.DataSource = JsonConverter.DeserializeObject<DataTable>(json);
-            panelResults.Show;
-        }
-
-        private void resultsButton_Click_1(object sender, EventArgs e)
-        {
-
+            dataGridView.DataSource = JsonConvert.DeserializeObject<DataTable>(json);
+            PanelResults.Show;
         }
     }
 }
