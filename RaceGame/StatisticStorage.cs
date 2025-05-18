@@ -5,7 +5,7 @@ namespace Race
 {
     public class StatisticStorage
     {
-        public static readonly string Path = @"GameStatistic.json";
+        public static readonly string Path = "GameStatistic.json";
         public static List<GameStatistic> GetAll()
         {
             string data = FileProvider.ReadAll(Path);
@@ -16,7 +16,7 @@ namespace Race
         {
             var gameStatistics = GetAll();
             gameStatistics.Add(gameStatistic);
-            FileProvider.WriteData(Path, JsonConvert.SerializeObject(gameStatistics));
+            FileProvider.WriteData(Path, JsonConvert.SerializeObject(gameStatistics, Formatting.Indented));
         }
     } 
 }

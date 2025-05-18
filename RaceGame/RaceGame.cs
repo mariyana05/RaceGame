@@ -123,7 +123,9 @@ namespace Race
 
             timerRoad.Stop();
             timerTowardCars.Stop();
+            panelResults.Hide();
             panelMenu.Show();
+
         }
 
         private void RaceGame_KeyDown(object sender, KeyEventArgs e)
@@ -248,7 +250,7 @@ namespace Race
         {
             var statictic = new GameStatistic
             {
-                UserName = nameTextBox.Text,
+                UserName = name,
                 CurrentDateTime = DateTime.Now,
                 Coins = coins,
                 Score = score
@@ -350,9 +352,10 @@ namespace Race
             towardCar3.Top = -towardCar3.Height;
             towardCar3.Left = r.Next(0, Width - towardCar3.Width);
 
+            panelGame.Show();
             panelMenu.Hide();
             panelPause.Hide();
-            panelGame.Show();
+            panelResults.Hide();
             buttonPause.Visible = true;
         }
         private void buttonExit_Click(object sender, EventArgs e)
@@ -385,19 +388,31 @@ namespace Race
 
         private void resultsButton_Click(object sender, EventArgs e)
         {
-            panelResults.Visible = true;
-            var json = FileProvider.ReadAll(StatisticStorage.Path) ?? string.Empty;
-            dataGridView.DataSource = JsonConvert.DeserializeObject<DataTable>(json);
-            //panelResults.Show;
+
+            var results = StatisticStorage.GetAll();
+            foreach ( var result in results )
+            {
+              dataGridView1.Rows.Add(result.UserName, result.CurrentDateTime,
+                  result.Coins, result.Score);
+            }            
+            panelResults.Show();
         }
-
-
         private void exitResultButton_Click(object sender, EventArgs e)
         {
-            panelResults.Visible = false;
+            panelResults.Hide();
         }
 
         private void dataGridView_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+
+        private void panelResults_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
 
         }

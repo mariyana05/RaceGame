@@ -5,7 +5,7 @@
         public static void CreateFile(string path)
         {
             if (!File.Exists(path))                
-                File.Create(path);                
+                File.Create(path).Close();                
         }
         public static bool Exists(string path) { return File.Exists(path);}
         public static void WriteData(string path, string data)

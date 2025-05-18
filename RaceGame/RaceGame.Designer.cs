@@ -35,12 +35,12 @@
             panelPause = new Panel();
             panelMenu = new Panel();
             panelResults = new Panel();
-            exitResultButton = new Button();
-            dataGridView = new DataGridView();
+            dataGridView1 = new DataGridView();
             UserName = new DataGridViewTextBoxColumn();
             CurrentDatetime = new DataGridViewTextBoxColumn();
-            Coins = new DataGridViewTextBoxColumn();
-            Score = new DataGridViewTextBoxColumn();
+            CoinsColumn = new DataGridViewTextBoxColumn();
+            ScoreColumn = new DataGridViewTextBoxColumn();
+            exitResultButton = new Button();
             resultsButton = new Button();
             nameTextBox = new TextBox();
             buttonHelp = new Button();
@@ -93,7 +93,7 @@
             panelPause.SuspendLayout();
             panelMenu.SuspendLayout();
             panelResults.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)dataGridView).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
             ((System.ComponentModel.ISupportInitialize)carMenu1).BeginInit();
             ((System.ComponentModel.ISupportInitialize)carMenu3).BeginInit();
             ((System.ComponentModel.ISupportInitialize)carMenu2).BeginInit();
@@ -191,35 +191,24 @@
             // 
             // panelResults
             // 
+            panelResults.Controls.Add(dataGridView1);
             panelResults.Controls.Add(exitResultButton);
-            panelResults.Controls.Add(dataGridView);
             panelResults.Location = new Point(0, 0);
             panelResults.Name = "panelResults";
-            panelResults.Size = new Size(448, 577);
+            panelResults.Size = new Size(448, 688);
             panelResults.TabIndex = 85;
-            panelResults.Visible = false;
+            panelResults.Paint += panelResults_Paint;
             // 
-            // exitResultButton
+            // dataGridView1
             // 
-            exitResultButton.Location = new Point(154, 520);
-            exitResultButton.Name = "exitResultButton";
-            exitResultButton.Size = new Size(136, 43);
-            exitResultButton.TabIndex = 1;
-            exitResultButton.Text = "BACK";
-            exitResultButton.UseVisualStyleBackColor = true;
-            exitResultButton.Click += exitResultButton_Click;
-            // 
-            // dataGridView
-            // 
-            dataGridView.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridView.Columns.AddRange(new DataGridViewColumn[] { UserName, CurrentDatetime, Coins, Score });
-            dataGridView.Location = new Point(0, 0);
-            dataGridView.Name = "dataGridView";
-            dataGridView.RowTemplate.Height = 25;
-            dataGridView.Size = new Size(448, 635);
-            dataGridView.TabIndex = 0;
-            dataGridView.Visible = false;
-            dataGridView.CellContentClick += dataGridView_CellContentClick;
+            dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridView1.Columns.AddRange(new DataGridViewColumn[] { UserName, CurrentDatetime, CoinsColumn, ScoreColumn });
+            dataGridView1.Location = new Point(0, 0);
+            dataGridView1.Name = "dataGridView1";
+            dataGridView1.RowTemplate.Height = 25;
+            dataGridView1.Size = new Size(441, 548);
+            dataGridView1.TabIndex = 2;
+            dataGridView1.CellContentClick += dataGridView1_CellContentClick;
             // 
             // UserName
             // 
@@ -231,15 +220,25 @@
             CurrentDatetime.HeaderText = "Время";
             CurrentDatetime.Name = "CurrentDatetime";
             // 
-            // Coins
+            // CoinsColumn
             // 
-            Coins.HeaderText = "Монеты";
-            Coins.Name = "Coins";
+            CoinsColumn.HeaderText = "Монты";
+            CoinsColumn.Name = "CoinsColumn";
             // 
-            // Score
+            // ScoreColumn
             // 
-            Score.HeaderText = "Скорость";
-            Score.Name = "Score";
+            ScoreColumn.HeaderText = "Скорость";
+            ScoreColumn.Name = "ScoreColumn";
+            // 
+            // exitResultButton
+            // 
+            exitResultButton.Location = new Point(-3, 543);
+            exitResultButton.Name = "exitResultButton";
+            exitResultButton.Size = new Size(445, 33);
+            exitResultButton.TabIndex = 1;
+            exitResultButton.Text = "BACK";
+            exitResultButton.UseVisualStyleBackColor = true;
+            exitResultButton.Click += exitResultButton_Click;
             // 
             // resultsButton
             // 
@@ -529,12 +528,12 @@
             // 
             labelCoins.AutoSize = true;
             labelCoins.BackColor = Color.Black;
-            labelCoins.Font = new Font("Microsoft YaHei", 22F, FontStyle.Bold, GraphicsUnit.Point);
-            labelCoins.ForeColor = SystemColors.ButtonHighlight;
+            labelCoins.Font = new Font("Microsoft YaHei", 9F, FontStyle.Bold, GraphicsUnit.Point);
+            labelCoins.ForeColor = SystemColors.ActiveCaptionText;
             labelCoins.Location = new Point(242, 10);
             labelCoins.Margin = new Padding(4, 0, 4, 0);
             labelCoins.Name = "labelCoins";
-            labelCoins.Size = new Size(109, 40);
+            labelCoins.Size = new Size(45, 17);
             labelCoins.TabIndex = 57;
             labelCoins.Text = "Coins:";
             // 
@@ -785,7 +784,7 @@
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = SystemColors.ButtonHighlight;
-            ClientSize = new Size(448, 649);
+            ClientSize = new Size(442, 649);
             Controls.Add(panelGame);
             FormBorderStyle = FormBorderStyle.FixedToolWindow;
             KeyPreview = true;
@@ -803,7 +802,7 @@
             panelMenu.ResumeLayout(false);
             panelMenu.PerformLayout();
             panelResults.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)dataGridView).EndInit();
+            ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
             ((System.ComponentModel.ISupportInitialize)carMenu1).EndInit();
             ((System.ComponentModel.ISupportInitialize)carMenu3).EndInit();
             ((System.ComponentModel.ISupportInitialize)carMenu2).EndInit();
@@ -872,11 +871,11 @@
         private Button resultsButton;
         private TextBox nameTextBox;
         private Panel panelResults;
-        private DataGridView dataGridView;
         private Button exitResultButton;
+        private DataGridView dataGridView1;
         private DataGridViewTextBoxColumn UserName;
         private DataGridViewTextBoxColumn CurrentDatetime;
-        private DataGridViewTextBoxColumn Coins;
-        private DataGridViewTextBoxColumn Score;
+        private DataGridViewTextBoxColumn CoinsColumn;
+        private DataGridViewTextBoxColumn ScoreColumn;
     }
 }
