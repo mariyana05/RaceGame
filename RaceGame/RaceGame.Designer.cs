@@ -34,6 +34,8 @@
             panelGame = new Panel();
             panelPause = new Panel();
             panelMenu = new Panel();
+            resultsButton = new Button();
+            nameTextBox = new TextBox();
             buttonHelp = new Button();
             buttonMenuExit = new Button();
             buttonStart = new Button();
@@ -151,6 +153,8 @@
             // panelMenu
             // 
             panelMenu.BackColor = SystemColors.ControlDarkDark;
+            panelMenu.Controls.Add(resultsButton);
+            panelMenu.Controls.Add(nameTextBox);
             panelMenu.Controls.Add(buttonHelp);
             panelMenu.Controls.Add(buttonMenuExit);
             panelMenu.Controls.Add(buttonStart);
@@ -172,9 +176,27 @@
             panelMenu.Location = new Point(0, 0);
             panelMenu.Margin = new Padding(4);
             panelMenu.Name = "panelMenu";
-            panelMenu.Size = new Size(451, 650);
+            panelMenu.Size = new Size(447, 650);
             panelMenu.TabIndex = 57;
             panelMenu.Paint += panelMenu_Paint;
+            // 
+            // resultsButton
+            // 
+            resultsButton.Font = new Font("Segoe UI", 14.25F, FontStyle.Bold, GraphicsUnit.Point);
+            resultsButton.Location = new Point(154, 420);
+            resultsButton.Name = "resultsButton";
+            resultsButton.Size = new Size(143, 46);
+            resultsButton.TabIndex = 84;
+            resultsButton.Text = "Results";
+            resultsButton.UseVisualStyleBackColor = true;
+            //resultsButton.Click += resultsButton_Click;
+            // 
+            // nameTextBox
+            // 
+            nameTextBox.Location = new Point(161, 224);
+            nameTextBox.Name = "nameTextBox";
+            nameTextBox.Size = new Size(136, 23);
+            nameTextBox.TabIndex = 83;
             // 
             // buttonHelp
             // 
@@ -191,7 +213,7 @@
             // buttonMenuExit
             // 
             buttonMenuExit.Font = new Font("Microsoft YaHei", 20.25F, FontStyle.Bold, GraphicsUnit.Point);
-            buttonMenuExit.Location = new Point(146, 380);
+            buttonMenuExit.Location = new Point(150, 348);
             buttonMenuExit.Margin = new Padding(4);
             buttonMenuExit.Name = "buttonMenuExit";
             buttonMenuExit.Size = new Size(154, 54);
@@ -203,7 +225,7 @@
             // buttonStart
             // 
             buttonStart.Font = new Font("Microsoft YaHei", 20.25F, FontStyle.Bold, GraphicsUnit.Point);
-            buttonStart.Location = new Point(130, 304);
+            buttonStart.Location = new Point(139, 260);
             buttonStart.Margin = new Padding(4);
             buttonStart.Name = "buttonStart";
             buttonStart.Size = new Size(186, 68);
@@ -784,5 +806,7 @@
         private Label menuOneLane2;
         private Label menuOneLane1;
         private Label label12;
+        private Button resultsButton;
+        private TextBox nameTextBox;
     }
 }

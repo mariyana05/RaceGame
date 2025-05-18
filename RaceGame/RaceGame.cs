@@ -1,4 +1,7 @@
-﻿namespace Race
+﻿using System.ComponentModel;
+using System.Text.Json.Serialization;
+
+namespace Race
 {
     public partial class RaceGame : Form
     {
@@ -316,18 +319,7 @@
             panelPause.Hide();
         }
 
-        private void buttonExit_Click(object sender, EventArgs e)
-        {
-            panelMenu.Show();
-        }
 
-        private void buttonStart_Click(object sender, EventArgs e)
-        {
-            StartGame();
-            panelGame.Show();
-            panelMenu.Hide();
-
-        }
         private void StartGame()
         {
             score = 0;
@@ -348,6 +340,23 @@
             panelGame.Show();
             buttonPause.Visible = true;
         }
+        private void buttonExit_Click(object sender, EventArgs e)
+        {
+            panelMenu.Show();
+        }
+
+        private void buttonStart_Click(object sender, EventArgs e)
+        {
+            if (string.IsNullOrWhiteSpace(nameTextBox.Text))
+            {
+                MessageBox.Show("Для начала игры необходимо ввести имя!");
+                return;
+            }
+            StartGame();
+            panelGame.Show();
+            panelMenu.Hide();
+
+        }
 
         private void buttonMenuExit_Click(object sender, EventArgs e)
         {
@@ -364,6 +373,12 @@
         {
 
         }
+        //private void resultsButton_Click(object sender, EventArgs e)
+        //{
+        //    var json = FileProvider.ReadAll(StatisticStorage.Path) ?? string.Empty;
+        //    resultsDataGridView.DataSource = JsonConverter.DeserializeObject<DataTable>(json);
+        //    panelResults.Show;
+        //}
     }
 }
 
