@@ -338,6 +338,12 @@ namespace Race
         private void StartGame()
         {
             name = nameTextBox.Text;
+           if(!IsNameValid(name)) 
+            {
+                MessageBox.Show("Имя должно содержать только букувы");
+
+            }
+           
             nameTextBox.Clear();
             score = 0;
             coins = 0;
@@ -358,6 +364,18 @@ namespace Race
             panelResults.Hide();
             buttonPause.Visible = true;
         }
+
+        private bool IsNameValid(string name)
+        {
+            char[] charName = name.ToCharArray();
+            foreach (var item in charName)
+            {
+                if (char.IsLetter(item))
+                    return false;
+            }                
+                return true;
+        }
+
         private void buttonExit_Click(object sender, EventArgs e)
         {
             panelMenu.Show();
