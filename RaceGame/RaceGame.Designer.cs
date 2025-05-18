@@ -201,7 +201,7 @@
             // 
             // exitResultButton
             // 
-            exitResultButton.Location = new Point(161, 531);
+            exitResultButton.Location = new Point(154, 520);
             exitResultButton.Name = "exitResultButton";
             exitResultButton.Size = new Size(136, 43);
             exitResultButton.TabIndex = 1;
@@ -216,8 +216,9 @@
             dataGridView.Location = new Point(0, 0);
             dataGridView.Name = "dataGridView";
             dataGridView.RowTemplate.Height = 25;
-            dataGridView.Size = new Size(448, 525);
+            dataGridView.Size = new Size(448, 635);
             dataGridView.TabIndex = 0;
+            dataGridView.Visible = false;
             dataGridView.CellContentClick += dataGridView_CellContentClick;
             // 
             // UserName

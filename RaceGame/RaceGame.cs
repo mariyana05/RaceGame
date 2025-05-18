@@ -15,6 +15,7 @@ namespace Race
         private int score;
         private int coins;
         private int carSpeed;
+        string name = string.Empty;
 
 
         public RaceGame()
@@ -334,6 +335,8 @@ namespace Race
         }
         private void StartGame()
         {
+            name = nameTextBox.Text;
+            nameTextBox.Clear();
             score = 0;
             coins = 0;
             carSpeed = 2;

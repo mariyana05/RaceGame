@@ -16,6 +16,7 @@ namespace Race
         {
             var gameStatistics = GetAll();
             gameStatistics.Add(gameStatistic);
+            FileProvider.WriteData(Path, JsonConvert.SerializeObject(gameStatistics));
         }
     } 
 }

@@ -2,14 +2,12 @@
 {
     public static class FileProvider
     {
-        public static void Create(string path)
+        public static void CreateFile(string path)
         {
-            if (!File.Exists(path)
-                {
-                File.Create(path);
-                }
+            if (!File.Exists(path))                
+                File.Create(path);                
         }
-        
+        public static bool Exists(string path) { return File.Exists(path);}
         public static void WriteData(string path, string data)
         {
             if (string.IsNullOrWhiteSpace(path) || string.IsNullOrWhiteSpace(data)) return;
@@ -25,6 +23,7 @@
         } 
         public static string ReadAll(string path)
         {
+            CreateFile(path);
             try
             {
                 using (var sr = new StreamReader(path))
