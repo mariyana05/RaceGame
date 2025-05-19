@@ -1,8 +1,4 @@
-﻿using Newtonsoft.Json;
-using System.Data;
-using System.Text.Json.Serialization;
-using System.Windows.Forms;
-
+﻿
 namespace Race
 {
     public partial class RaceGame : Form
@@ -337,13 +333,6 @@ namespace Race
         }
         private void StartGame()
         {
-            name = nameTextBox.Text;
-           if(!IsNameValid(name)) 
-            {
-                MessageBox.Show("Имя должно содержать только букувы");
-
-            }
-           
             nameTextBox.Clear();
             score = 0;
             coins = 0;
@@ -363,18 +352,7 @@ namespace Race
             panelPause.Hide();
             panelResults.Hide();
             buttonPause.Visible = true;
-        }
-
-        private bool IsNameValid(string name)
-        {
-            char[] charName = name.ToCharArray();
-            foreach (var item in charName)
-            {
-                if (char.IsLetter(item))
-                    return false;
-            }                
-                return true;
-        }
+        }       
 
         private void buttonExit_Click(object sender, EventArgs e)
         {
@@ -383,6 +361,15 @@ namespace Race
 
         private void buttonStart_Click(object sender, EventArgs e)
         {
+            name = nameTextBox.Text;
+
+            if (!name.All(Char.IsLetter))
+            {
+                MessageBox.Show("Имя должно состоять только из букув");
+                nameTextBox.Text = string.Empty;
+                return;
+
+            }
             if (string.IsNullOrWhiteSpace(nameTextBox.Text))
             {
                 MessageBox.Show("Для начала игры необходимо ввести имя!");
