@@ -18,14 +18,9 @@ namespace Race
         private int coins;
         private int carSpeed;
         string name = string.Empty;
-        SoundPlayer snd = null;
+        
 
-        private void musicbutton_Click(object sender, EventArgs e)
-        {
-            Stream str = Properties.Resources.;
-            snd = new SoundPlayer(str);
-            snd.Play();
-        }
+       
 
         //public WMPLib.WindowsMediaPlayer WMP = new WMPLib.WindowsMediaPlayer();
         public RaceGame()
@@ -440,6 +435,8 @@ namespace Race
             audioPlayer.SoundLocation = musicFullPath;
             audioPlayer.Play();
             audioTimer.Start();
+            
+            
         }
         private void NextMusic(object? sender, EventArgs e)
         {
