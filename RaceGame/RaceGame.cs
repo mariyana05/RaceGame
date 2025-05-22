@@ -1,4 +1,10 @@
 ﻿
+using System.Media;
+using NAudio.Wave;
+//using WMPLib;
+
+
+
 namespace Race
 {
     public partial class RaceGame : Form
@@ -12,12 +18,25 @@ namespace Race
         private int coins;
         private int carSpeed;
         string name = string.Empty;
+        SoundPlayer snd = null;
 
+        private void musicbutton_Click(object sender, EventArgs e)
+        {
+            Stream str = Properties.Resources.;
+            snd = new SoundPlayer(str);
+            snd.Play();
+        }
 
+        //public WMPLib.WindowsMediaPlayer WMP = new WMPLib.WindowsMediaPlayer();
         public RaceGame()
         {
             InitializeComponent();
         }
+        private string baseDirectory = Directory.GetParent(Environment.CurrentDirectory).Parent.Parent.FullName;
+        private SoundPlayer audioPlayer = new SoundPlayer();
+        private System.Windows.Forms.Timer audioTimer = new System.Windows.Forms.Timer();
+        private List<string> audioFileNames;
+
         private void timerRoad_Tick(object sender, EventArgs e)
         {
             labelScore.Text = "Score: " + score / 10;
@@ -116,6 +135,12 @@ namespace Race
             leftHandRoadMarkingsMenu[2] = menuTwoLane3;
             leftHandRoadMarkingsMenu[3] = menuTwoLane4;
             leftHandRoadMarkingsMenu[4] = menuTwoLane5;
+
+            DirectoryInfo di = new DirectoryInfo(baseDirectory + "\\Sounds");
+            var files = di.GetFiles();
+            audioFileNames = files.Select(audioInfo => audioInfo.Name).ToList();
+            audioTimer.Tick += NextMusic;
+            PlaySound();
 
             timerRoad.Stop();
             timerTowardCars.Stop();
@@ -352,7 +377,7 @@ namespace Race
             panelPause.Hide();
             panelResults.Hide();
             buttonPause.Visible = true;
-        }       
+        }
 
         private void buttonExit_Click(object sender, EventArgs e)
         {
@@ -395,26 +420,38 @@ namespace Race
         {
 
             var results = StatisticStorage.GetAll();
-            foreach ( var result in results )
+            foreach (var result in results)
             {
-              dataGridView1.Rows.Add(result.UserName, result.CurrentDateTime,
-                  result.Coins, result.Score);
-            }            
+                dataGridView1.Rows.Add(result.UserName, result.CurrentDateTime,
+                    result.Coins, result.Score);
+            }
             panelResults.Show();
         }
         private void exitResultButton_Click(object sender, EventArgs e)
         {
             panelResults.Hide();
         }
-
-        private void dataGridView_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        private void PlaySound()
         {
-
+            var randomMusicName = audioFileNames[new Random().Next(0, audioFileNames.Count)];
+            var musicFullPath = $"{baseDirectory}\\Sounds\\{randomMusicName}";
+            var musicDuraction = GetWavFileDuraction(musicFullPath);
+            audioTimer.Interval = (int)musicDuraction.TotalMilliseconds;
+            audioPlayer.SoundLocation = musicFullPath;
+            audioPlayer.Play();
+            audioTimer.Start();
         }
-
-        private void panelResults_Paint(object sender, PaintEventArgs e)
+        private void NextMusic(object? sender, EventArgs e)
+        {
+            audioPlayer.Stop();
+            audioTimer.Stop();
+            PlaySound();
+        }
+        public TimeSpan GetWavFileDuraction(string fileName)
         {
 
+            WaveFileReader wf = new WaveFileReader(fileName);
+            return wf.TotalTime;
         }
 
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
